@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PHPRunner</string>
+    <string name="author">NaikSoftware, Komsomolsk, 2012</string>
+    <string name="root_dir">Cartella principale</string>
+    <string name="out_of_memory_local">Memoria insufficiente interna in /data/data/.</string>
+    <string name="out_of_memory_htdocs">memoria insufficiente sul drive flash. Non abbastanza</string>
+    <string name="not_have_internet">Non collegato a Internet</string>
+    <string name="err_create_new_file">Non creare il file su un flash drive!</string>
+    <string  name="install_complete">Installazione completata con successo</string>
+    <string name="install_calcel">Installazione fermato!</string>
+    <string name="copy_error">Impossibile copiare i file! Forse una cattiva connessione a Internet</string>
+    <string name="downloading_wait">Installazione ...</string>
+    <string name="progress_dialog_message">È possibile interrompere il download, quindi continuerà dal punto in cui si è fermato</string>
+    <string name="exists_processes">Attenzione! Già ci sono i processi in esecuzione! Il programma verrà eseguito solo</string>
+    <string name="not_exists_processes">Mentre nulla è in esecuzione</string>
+    <string name="successfully_run">Tutti lanciato con successo</string>
+    <string name="install_btn_label">Installa</string>
+    <string name="run_btn_label">Inizio</string>
+    <string name="stop_btn_label">Stop</string>
+    <string name="site_editor">Editore del sito</string>
+    <string name="help">Dopo il lancio di successo può chiudere, PHP e MySQL continuerà a funzionare in background.\n Si consiglia di utilizzare
+        <b> Opera Mobile</b> per visualizzare, creare le pagine web locali. URL -. Http://localhost:8080\n * MySQL User - root\n * password MySQL - lasciare vuoto\n * host MySQL - 127.0.0.1\n * il nome del database - mysql.
+    </string>
+    <string name="select_doc_folder_title">Selezionare la cartella principale</string>
+    <string name="select_doc_folder_message">Su un flash drive non dispone dei diritti di accesso, la memoria del telefono è</string>
+    <string name="web_tab_header">Visualizza</string>
+    <string name="file_tab_header">Editor</string>
+    <string name="input_url">Inserire l\'URL</string>
+    <string name="html_default_title">Titolo</string>
+    <string name="download_phpmyadmin">Scarica PhpMyAdmin</string>
+    <string  name="start_phpmyadmin">PhpMyAdmin Run</string>
+    <string name="not_found_name">Nome non è specificato</string>
+    <string name="launching">Avvio&#8230;</string>
+    <string name="launch_err">Impossibile avviare!</string>
+	
+    <!--Settings-->
+    <string name="settings">Impostazioni</string>
+    <string name="auto_start_title">Startup</string>
+    <string name="auto_start_summary">Apertura automatica all\'avvio</string>
+</resources>

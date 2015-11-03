@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PHPRunner</string>
+    <string name="author">NaikSoftware, Комсомольск, 2012</string>
+    <string name="root_dir">Корневая папка</string>
+    <string name="out_of_memory_local">Недостаточно внутренней памяти в /data/data/.</string>
+    <string name="out_of_memory_htdocs">Недостаточно памяти на флешке. Не хватает</string>
+    <string name="not_have_internet">Отсутствует подключение к Интернет!</string>
+    <string name="err_create_new_file">Невозможно создать файл на флешке!</string>
+    <string name="install_complete">Установка успешно завершена</string>
+    <string name="install_calcel">Установка остановлена!</string>
+    <string name="copy_error">Не могу скопировать файлы! Возможно плохое соединение с Internet</string>
+    <string name="downloading_wait">Установка...</string>
+    <string name="progress_dialog_message">Вы можете прервать загрузку, потом она будет продолжена с места остановки</string>
+    <string name="exists_processes">Внимание! Уже есть работающие процессы! Программа запустит только </string>
+    <string name="not_exists_processes">Пока ничего не запущено</string>
+    <string name="successfully_run">Все успешно запущено</string>
+    <string name="install_btn_label">Установить</string>
+    <string name="run_btn_label">Запустить</string>
+    <string name="stop_btn_label">Остановить</string>
+    <string name="site_editor">Редактор сайта</string>
+    <string name="help">После успешного запуска можете закрыть программу, PHP и MySQL продолжат работать в фоне.\n Рекомендуем использовать 
+        <b>Opera Mobile</b> для просмотра созданных локальных веб-страниц. URL - http://localhost:8080.\n *Пользователь MySQL - root\n *пароль MySQL - оставить пустым\n *хост MySQL - 127.0.0.1\n *имя базы данных - mysql.
+    </string>
+    <string name="select_doc_folder_title">Выберите корневую папку</string>
+    <string name="select_doc_folder_message">На флешке нет прав доступа, в памяти телефона есть</string>
+    <string name="web_tab_header">Просмотр</string>
+    <string name="file_tab_header">Редактор</string>
+    <string name="input_url">Введите URL</string>
+    <string name="html_default_title">Title</string>
+    <string name="download_phpmyadmin">Загрузить PhpMyAdmin</string>
+    <string name="start_phpmyadmin">Запустить PhpMyAdmin</string>
+    <string name="not_found_name">Имя не задано</string>
+    <string name="launching">Запуск&#8230;</string>
+    <string name="launch_err">Ошибка запуска!</string>
+	
+    <!--Settings-->
+    <string name="settings">Настройки</string>    
+    <string name="auto_start_title">Автостарт</string>
+    <string name="auto_start_summary">Запуск при загрузке Android</string>
+    
+    <!--EditorActivity-->
+    <string name="find">Поиск..</string>
+    <string name="save_as">Сохранить как</string>
+    <string name="encoding">Кодировка</string>
+    <string name="format_code">Форматирование</string>
+    <string name="rename">Переименовать</string>
+</resources>

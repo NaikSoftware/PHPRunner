@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Title bar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+        <Spinner
+            android:id="@+id/spinnerListFiles"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+        <ImageButton
+			android:id="@+id/editor_btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_delete" />
+    </LinearLayout>
+    <!--Editor window-->
+    <RelativeLayout
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:id="@+id/btn_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_media_previous"/>
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_media_next"/>
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_save"/>
+            <!--ua.naiksoftware.widget.ImageSpinner
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"/-->
+            <Spinner
+                android:id="@+id/spinner_menu"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <ScrollView
+            android:layout_above="@id/btn_panel"
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ua.naiksoftware.phprunner.editor.VerticalNumsLine
+                    android:id="@+id/verticalNumsLine"
+                    android:layout_width="35px"
+                    android:layout_height="match_parent" />
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+                    <ua.naiksoftware.phprunner.editor.SourceEditor
+                        android:id="@+id/editor_editCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#000022"
+                        android:typeface="monospace"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textVisiblePassword|textMultiLine"
+                        android:gravity="top|left" />
+                </HorizontalScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>
+

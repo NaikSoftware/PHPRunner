@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+	<!-- fake focus -->
+	<View 
+		android:focusable="true"
+		android:focusableInTouchMode="true"
+		android:layout_width="0px" 
+		android:layout_height="0px" />
+	<EditText
+		android:id="@+id/goto_url"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/input_url"
+		android:singleLine="true"/>
+
+    <FrameLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <WebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:id="@+id/webTitlePanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fon_title"
+            android:visibility="gone">
+            <ImageView
+                android:id="@+id/favicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1px"
+                android:src="@drawable/favicon"/>
+            <TextView
+                android:id="@+id/html_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/favicon"
+                android:text="@string/html_default_title"
+                android:singleLine="true"/>
+        </RelativeLayout>
+		<ProgressBar
+            android:id="@+id/progressBar_url_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+			style="?android:attr/progressBarStyleLarge"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/webToolsPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:drawable/bottom_bar">
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textStyle="bold"
+			android:text="⇐"/>
+        <Button
+            android:id="@+id/btnRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textStyle="bold"
+			android:text="↺"/>
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textStyle="bold"
+			android:text="⇒"/>
+    </LinearLayout>
+
+</LinearLayout>

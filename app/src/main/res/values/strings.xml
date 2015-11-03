@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PHPRunner</string>
+    <string name="author">NaikSoftware, Komsomolsk, 2012-2013</string>
+    <string name="root_dir">Root Folder</string>
+    <string name="input_other_path">[Input other path]</string>
+    <string name="out_of_memory_local">Insufficient internal memory in /data/data/.</string>
+    <string name="out_of_memory_htdocs">Enough memory on the flash drive. Not enough</string>
+    <string name="not_have_internet">Not connected to the Internet!</string>
+    <string name="err_create_new_file">Not create the file on a flash drive!</string>
+    <string name="install_complete">Installation completed successfully</string>
+    <string name="install_calcel">Installation stopped!</string>
+    <string name="copy_error">Can not copy files! Maybe a bad connection with the Internet</string>
+    <string name="downloading_wait">Installing ...</string>
+    <string name="progress_dialog_message">You can abort the download, then it will continue from where it stopped</string>
+    <string name="exists_processes">Attention! Already there are processes running! The program will run only </string>
+    <string name="not_exists_processes">While nothing is running</string>
+    <string name="successfully_run">All successfully launched</string>
+    <string name="install_btn_label">Install</string>
+    <string name="run_btn_label">Start</string>
+    <string name="stop_btn_label">Stop</string>
+    <string name="site_editor">Site editor</string>
+    <string name="help">After the successful launch can close, PHP and MySQL will continue to run in the background. \n We recommend using
+        <b>Opera Mobile</b> to view, create the local web pages. URL - http://localhost:8080.\n * User MySQL - root\n * password MySQL - leave empty\n * host MySQL - 127.0.0.1\n * database name - mysql.
+    </string>
+    <string name="select_doc_folder_title">Select the root folder</string>
+    <string name="select_doc_folder_message">On a flash drive does not have access rights, the phone memory has</string>
+    <string name="web_tab_header">View</string>
+    <string name="file_tab_header">Editor</string>
+    <string name="input_url">Enter URL</string>
+    <string name="html_default_title">Title</string>
+    <string name="download_phpmyadmin">Download PhpMyAdmin</string>
+    <string name="start_phpmyadmin">Run PhpMyAdmin</string>
+    <string name="not_found_name">Name is not specified</string>
+    <string name="launching">Launching&#8230;</string>
+    <string name="launch_err">Failed to start!</string>
+	
+    <!--Menu in WebViewActivity-->
+    <string name="view_html">HTML</string>
+    <string name="view_cookies">COOKIES</string>
+	
+    <!--EditorActivity strings-->
+    <string name="find">Find</string>
+    <string name="save_as">Save as</string>
+    <string name="encoding">Encoding</string>
+    <string name="format_code">Format_code</string>
+    <string name="rename">Rename</string>
+    <string name="not_found_file">File not found. Invalid path:</string>
+    <string name="new_file_not_saved">New file not saved</string>
+    <string name="saved">File saved</string>
+		
+    <!--Settings-->
+    <string name="settings">Settings</string>
+    <string name="auto_start_title">Autostart</string>
+    <string name="auto_start_summary">Automatically start at boot</string>
+	
+</resources>

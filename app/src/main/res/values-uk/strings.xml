@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PHPRunner</string>
+    <string name="author">NaikSoftware, Комсомольськ, 2012</string>
+    <string name="root_dir">Папка документів</string>
+    <string name="out_of_memory_local">Недостатньо внутрішньої пам\'яті в /data/data/.</string>
+    <string name="out_of_memory_htdocs">Недостатньо пам\'яті на флешці. Не хватає</string>
+    <string name="not_have_internet">Відсутнє з\'єднання з Інтернет!</string>
+    <string name="err_create_new_file">Неможливо створити файл на флешці!</string>
+    <string name="install_complete">Інсталяція успішно завершена</string>
+    <string name="install_calcel">Інсталяція зупинена!</string>
+    <string name="copy_error">Не можу скопіювати файли! Можливо нестійке з\'єднання з Internet</string>
+    <string name="downloading_wait">Інсталяція...</string>
+    <string name="progress_dialog_message">Ви можете зупинити установку, потім вона буде продовжена з цього місця</string>
+    <string name="exists_processes">Увага! Вже є запущені процеси! Програма запустить тільки </string>
+    <string name="not_exists_processes">Поки що нічого не запущено</string>
+    <string name="successfully_run">Все успішно запущено</string>
+    <string name="install_btn_label">Інсталювати</string>
+    <string name="run_btn_label">Запустити</string>
+    <string name="stop_btn_label">Зупинити</string>
+    <string name="site_editor">Редактор сайту</string>
+    <string name="help">Після успішного запуску можете закрити цю програму, PHP і MySQL продовжать робити у фоні.\n Рекомендуємо використовувати 
+        <b>Opera Mobile</b> для перегляду створених локальних сторінок. URL - http://localhost:8080.\n *Користувач MySQL - root\n *пароль MySQL - залишити порожнім\n *хост MySQL - 127.0.0.1\n *ім\'я бази даних - mysql.
+    </string>
+    <string name="select_doc_folder_title">Виберіть робочу папку</string>
+    <string name="select_doc_folder_message">На флешці немає прав доступу, а у внутрішній пам\'яті є</string>
+    <string name="web_tab_header">Перегляд</string>
+    <string name="file_tab_header">Редактор</string>
+    <string name="input_url">Введіть URL</string>
+    <string name="html_default_title">Title</string>
+    <string name="download_phpmyadmin">Завантажити PhpMyAdmin</string>
+    <string name="start_phpmyadmin">Запустити PhpMyAdmin</string>
+    <string name="not_found_name">Ім\'я не задане</string>
+    <string name="launching">Запуск&#8230;</string>
+    <string name="launch_err">Помилка запуску!</string>
+	
+    <!--Settings-->
+    <string name="settings">Налаштування</string>
+    <string name="auto_start_title">Автостарт</string>
+    <string name="auto_start_summary">Запуск при вмиканні Android</string>
+    
+    <!--EditorActivity-->
+    <string name="find">Пошук..</string>
+    <string name="save_as">Зберегти як</string>
+    <string name="encoding">Кодування</string>
+    <string name="format_code">Форматування</string>
+    <string name="rename">Перейменувати</string>
+</resources>

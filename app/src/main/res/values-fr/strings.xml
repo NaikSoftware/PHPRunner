@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PHPRunner</string>
+    <string name="author">NaikSoftware, Komsomolsk, 2012</string>
+    <string name="root_dir">le dossier racine</string>
+    <string name="out_of_memory_local">Mémoire interne insuffisante /data/data/.</string>
+    <string name="out_of_memory_htdocs">Pas assez de mémoire sur le lecteur flash. pas assez</string>
+    <string name="not_have_internet">Non connecté à Internet!</string>
+    <string name="err_create_new_file">Impossible de créer un fichier sur un lecteur flash!</string>
+    <string name="install_complete">L\'installation s\'est terminée avec succès</string>
+    <string name="install_calcel">Unité a été arrêtée!</string>
+    <string name="copy_error">Impossible de copier les fichiers! Peut-être une mauvaise connexion à Internet</string>
+    <string name="downloading_wait">Installation ...</string>
+    <string name="progress_dialog_message">Vous pouvez annuler le téléchargement, puis il reprendra là où elle s\'est arrêtée</string>
+    <string name="exists_processes">Attention! Déjà il ya des processus en cours d\'exécution! Le programme sera exécuté uniquement </string>
+    <string name="not_exists_processes">Même s\'il n\'est pas en cours d\'exécution</string>
+    <string name="successfully_run">Tous ont lancé avec succès</string>
+    <string name="install_btn_label">établir</string>
+    <string name="run_btn_label">courir</string>
+    <string name="stop_btn_label">Stop</string>
+    <string name="site_editor">Editeur du site</string>
+    <string name="help">Après le lancement réussi peut fermer, PHP et MySQL continuera à fonctionner en arrière-plan.\n Nous recommandons d\'utiliser 
+        <b>Opera Mobile</b> pour afficher, créer des pages Web locales. URL -. Http://localhost:8080\n * utilisateur MySQL - root\n * Mot de passe MySQL - laisser vide\n * l\'hôte MySQL - 127.0.0.1\n nom de la base * - mysql.
+    </string>
+    <string name="select_doc_folder_title">Sélectionnez la racine</string>
+    <string name="select_doc_folder_message">Le lecteur flash n\'a pas accès, dans la mémoire du téléphone est</string>
+    <string name="web_tab_header">Revoir</string>
+    <string name="file_tab_header">éditeur</string>
+    <string name="input_url">Entrez une URL</string>
+    <string name="html_default_title">Titre</string>
+    <string name="download_phpmyadmin">Télécharger PhpMyAdmin</string>
+    <string name="start_phpmyadmin">Exécuter PhpMyAdmin</string>
+    <string name="not_found_name">Aucun nom n\'est donné</string>
+    <string name="launching">Lancement&#8230;</string>
+    <string name="launch_err">Impossible de démarrer!</string>
+	
+	<!--Settings-->
+        <string name="settings">Réglages</string>
+	<string name="auto_start_title">Démarrage</string>
+	<string name="auto_start_summary">Lancer automatiquement au démarrage</string>
+</resources>

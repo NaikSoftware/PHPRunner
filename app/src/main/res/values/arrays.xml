@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="test_arr">
+        <item>@string/find</item>
+        <item>@string/save_as</item>
+        <item>@string/encoding</item>
+        <item>@string/format_code</item>
+        <item>@string/rename</item>
+    </string-array>
+</resources>
