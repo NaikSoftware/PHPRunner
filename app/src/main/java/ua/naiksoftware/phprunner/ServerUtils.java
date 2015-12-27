@@ -102,50 +102,33 @@ public class ServerUtils {
             htdocs.mkdir();
         }
         try {
-            ProcessBuilder procBuilder;
-
             String[] param1 = new String[3];
-            //param1[0] = PATH_TO_INSTALL_SERVER + "/lighttpd";
-            //param1[1] = "-f" + PATH_TO_INSTALL_SERVER + "/lighttpd.conf";
-            //param1[2] = "-D";
             param1[0] = PATH_TO_INSTALL_SERVER + "/lighttpd";
             param1[1] = "-f" + PATH_TO_INSTALL_SERVER + "/lighttpd.conf";
             param1[2] = "-D";
 
             String[] param2 = new String[3];
-            //param2[0] = PATH_TO_INSTALL_SERVER + "/" + PHP_BINARY;
-            //param2[1] = "-b127.0.0.1:9001";
-            //param2[2] = "-c" + PATH_TO_INSTALL_SERVER + "/php.ini";
-            param2[0] = PATH_TO_INSTALL_SERVER + "/" + PHP_BINARY;//"/data/data/ua.naiksoftware.phprunner/tmp/php.sock"
+            param2[0] = PATH_TO_INSTALL_SERVER + "/" + PHP_BINARY;
             param2[1] = "-c" + PATH_TO_INSTALL_SERVER + "/php.ini";
             param2[2] = "-y" + PATH_TO_INSTALL_SERVER + "/fpm.conf";
 
-            //String[] param3 = new String[3];
-            //param3[0] = PATH_TO_INSTALL_SERVER + "/mysqld";
-            //param3[1] = "--defaults-file=" + PATH_TO_INSTALL_SERVER + "/my.ini";
-            //param3[2] = "--user=root";
             String[] param3 = new String[4];
             param3[0] = PATH_TO_INSTALL_SERVER + "/mysqld";
             param3[1] = "--defaults-file=" + PATH_TO_INSTALL_SERVER + "/my.ini";
             param3[2] = "--user=root";
             param3[3] = "--language=" + PATH_TO_INSTALL_SERVER + "/share/mysql/english";
 
-            //procBuilder = new ProcessBuilder(param1);
-            //Process proc = procBuilder.start();
-            //L.write(tag, "Run lighttpd: " + readFromProcess(proc, true));
+            // Start Lighttpd server
             Runtime.getRuntime().exec(param1);
-            //Log.d("Main", "run lighttpd");
 
-            //Runtime.getRuntime().exec(param2, new String[]{"PHP_FCGI_MAX_REQUESTS=1000"});
+            // Start php-fpm
             Process process = Runtime.getRuntime().exec(param2, new String[]{"PHP_FCGI_CHILDREN=4", "PHP_FCGI_MAX_REQUESTS=10000", ("TMPDIR=" + PATH_TO_INSTALL_SERVER + "/tmp")});
             L.write(TAG, "PHP startup errors: " + readFromProcess(process, true));
 
-            procBuilder = new ProcessBuilder(param3);
-            Process proc = procBuilder.start();
-            L.write(TAG, "MySQL startup errors: " + readFromProcess(proc, true));
-            //Process process1 = Runtime.getRuntime().exec(param3);
-            //L.write(TAG, "MySQL startup errors: " + readFromProcess(process, true));
-            //Log.d("Main", "run mysqld");  
+            // Start mysqld
+            ProcessBuilder procBuilder = new ProcessBuilder(param3);
+            process = procBuilder.start();
+            L.write(TAG, "MySQL startup errors: " + readFromProcess(process, true));
         } catch (IOException e) {
             L.write(TAG, "Not executed or other:" + e);
         }

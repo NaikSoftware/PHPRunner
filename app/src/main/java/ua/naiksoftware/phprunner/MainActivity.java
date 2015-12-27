@@ -287,8 +287,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void applyDocDirChanges() {
         // Split to two part - first line (change doc root at her) and other config.
-        final String[] conf = FileUtils.readFile(pathToInstallServer + "/lighttpd.conf").split("\n", 2);
-        final String newconf = conf[0].replace(docFolder, selected) + "\n" + conf[1];
+        String content = FileUtils.readFile(pathToInstallServer + "/lighttpd.conf");
+        int index = content.indexOf(docFolder);
+        if (index == -1) {
+            Toast.makeText(context, "Not changed!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        String[] conf = content.substring(index).split("\n", 2);
+        String newconf = content.substring(0, index) + conf[0].replace(docFolder, selected) + "\n" + conf[1];
         new File(selected).mkdirs();
         try {
             FileUtils.saveCode(newconf, "utf-8", pathToInstallServer + "/lighttpd.conf");
@@ -310,7 +316,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuItem mi = menu.add(R.string.settings);
+        mi.setIcon(android.R.drawable.ic_menu_preferences);
         mi.setIntent(new Intent(context, SettingsActivity.class));
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD) {
+            mi.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 

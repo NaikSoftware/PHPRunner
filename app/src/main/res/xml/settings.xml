@@ -4,5 +4,5 @@
     <CheckBoxPreference
         android:key="auto_start"
         android:summary="@string/auto_start_summary"
-        android:title="@string/auto_start_title"/>
+        android:title="@string/auto_start_title" />
 </PreferenceScreen>
