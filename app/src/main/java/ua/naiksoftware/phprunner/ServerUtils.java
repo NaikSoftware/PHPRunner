@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ua.naiksoftware.phprunner.log.L;
 
 /**
@@ -19,13 +17,13 @@ import ua.naiksoftware.phprunner.log.L;
  */
 public class ServerUtils {
 
-    private static final String tag = ServerUtils.class.getName();
+    private static final String TAG = ServerUtils.class.getSimpleName();
 
     private final String PATH_TO_INSTALL_SERVER;
     private String DOC_FOLDER;
     private final String DOC_FOLDER_EXT_DEFAULT;
     private final String DOC_FOLDER_LOCAL_DEFAULT;
-    public static final String PHP_BINARY = "php-cgi";
+    public static final String PHP_BINARY = "php-fpm_7_0_0_arm";
 
     public ServerUtils(Context context) {
         SharedPreferences myPrefs = context.getSharedPreferences(Const.MY_PREFS, Activity.MODE_PRIVATE);
@@ -82,8 +80,8 @@ public class ServerUtils {
         }
         for (String line : output) {
             //if (line.contains(PATH_TO_INSTALL_SERVER)) {
-            if (line.contains(PHP_BINARY) || line.contains("lighttpd") || line.contains("mysqld")) {
-                L.write(tag, "stopSrv:parsed string= " + line);
+            if (line.contains("php-fpm") || line.contains("lighttpd") || line.contains("mysqld")) {
+                L.write(TAG, "stopSrv:parsed string= " + line);
                 int pid = Integer.parseInt(line.split("\\s+")[1]);
                 //Log.d("Stop srv", "Stop PID=" + pid);
                 try {
@@ -91,14 +89,14 @@ public class ServerUtils {
                 } catch (IOException ex) {
                     //Log.e("Stop srv", "Error in exec stopping commands", ex);
                 } catch (InterruptedException ex) {
-                    L.write(tag, "kill process err:" + ex);
+                    L.write(TAG, "kill process err:" + ex);
                 }
             }
         }
     }
 
     public void runSrv() {
-        L.write(tag, "runSrv");
+        L.write(TAG, "runSrv");
         File htdocs = new File(DOC_FOLDER);
         if (!htdocs.exists()) {
             htdocs.mkdir();
@@ -119,8 +117,8 @@ public class ServerUtils {
             //param2[1] = "-b127.0.0.1:9001";
             //param2[2] = "-c" + PATH_TO_INSTALL_SERVER + "/php.ini";
             param2[0] = PATH_TO_INSTALL_SERVER + "/" + PHP_BINARY;//"/data/data/ua.naiksoftware.phprunner/tmp/php.sock"
-            param2[1] = "-b" + PATH_TO_INSTALL_SERVER + "/tmp/php.sock";
-            param2[2] = "-c" + PATH_TO_INSTALL_SERVER + "/php.ini";
+            param2[1] = "-c" + PATH_TO_INSTALL_SERVER + "/php.ini";
+            param2[2] = "-y" + PATH_TO_INSTALL_SERVER + "/fpm.conf";
 
             //String[] param3 = new String[3];
             //param3[0] = PATH_TO_INSTALL_SERVER + "/mysqld";
@@ -139,13 +137,17 @@ public class ServerUtils {
             //Log.d("Main", "run lighttpd");
 
             //Runtime.getRuntime().exec(param2, new String[]{"PHP_FCGI_MAX_REQUESTS=1000"});
-            Runtime.getRuntime().exec(param2, new String[]{"PHP_FCGI_CHILDREN=4", "PHP_FCGI_MAX_REQUESTS=10000", ("TMPDIR=" + PATH_TO_INSTALL_SERVER + "/tmp")});
-            //Log.d("Main", "run php-cgi-ext");
+            Process process = Runtime.getRuntime().exec(param2, new String[]{"PHP_FCGI_CHILDREN=4", "PHP_FCGI_MAX_REQUESTS=10000", ("TMPDIR=" + PATH_TO_INSTALL_SERVER + "/tmp")});
+            L.write(TAG, "PHP startup errors: " + readFromProcess(process, true));
 
-            Runtime.getRuntime().exec(param3);
+            procBuilder = new ProcessBuilder(param3);
+            Process proc = procBuilder.start();
+            L.write(TAG, "MySQL startup errors: " + readFromProcess(proc, true));
+            //Process process1 = Runtime.getRuntime().exec(param3);
+            //L.write(TAG, "MySQL startup errors: " + readFromProcess(process, true));
             //Log.d("Main", "run mysqld");  
         } catch (IOException e) {
-            L.write(tag, "Not executed or other:" + e);
+            L.write(TAG, "Not executed or other:" + e);
         }
     }
 
@@ -173,7 +175,7 @@ public class ServerUtils {
             if (list.contains("lighttpd")) {
                 onLighttpd = true;
             }
-            if (list.contains(PHP_BINARY)) {
+            if (list.contains("php-fpm")) {
                 onPhp = true;
             }
             if (list.contains("mysqld")) {

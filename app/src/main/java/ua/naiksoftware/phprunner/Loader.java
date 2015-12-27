@@ -14,13 +14,13 @@ import java.net.*;
 public class Loader {
 
     private HttpURLConnection urlConn;
-    private Installator inst;
+    private Installer inst;
     private long readed, contentLength;
     private ConnectivityManager connManager;
     private String url;
 	private File file;
 
-    public Loader(Context context, Installator inst, String url, File file) {
+    public Loader(Context context, Installer inst, String url, File file) {
         this.connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         this.url = url;
         this.file = file;

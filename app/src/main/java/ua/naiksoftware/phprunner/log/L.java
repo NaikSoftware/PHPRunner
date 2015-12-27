@@ -5,12 +5,17 @@ import android.os.*;
 import android.util.*;
 import java.util.*;
 
+import ua.naiksoftware.phprunner.BuildConfig;
+
 public class L {
 
 	private static final String token = " : ";
 	private static final long MAX_LEN = 51200;//50 Kb
 
 	public static void write(String tag, String message) {
+		if (BuildConfig.DEBUG) {
+			Log.d(tag, message);
+		}
 		try {
 			boolean noClear;
 			File file = new File(Environment.getExternalStorageDirectory(), "log_phprunner.txt");

@@ -28,7 +28,7 @@ public class Unzip {
         return realSize;
     }
 
-    public static boolean unzip(InputStream is, File folderToUnzip, Installator inst, boolean setRights) {
+    public static boolean unzip(InputStream is, File folderToUnzip, Installer inst, boolean setRights) {
         //L.write(tag, "method unzip started");
         ZipInputStream zip = new ZipInputStream(new BufferedInputStream(is));
         FileOutputStream fos = null;

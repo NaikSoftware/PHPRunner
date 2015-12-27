@@ -23,7 +23,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static final int RUN = 2;
     private static final int STOP = 3;
     private Context context;
-    private Installator installator;
+    private Installer installator;
     private TextView info, infoDir;
     private Button btnStart;
     private Button btnDocFolder;
@@ -147,9 +147,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void install() {
         //L.write("Main", "install");
         btnStart.setEnabled(false);
-        installator = new Installator(this, handlerInstallServer, true);
+        installator = new Installer(this, handlerInstallServer, true);
         installator.execute(Const.ARCHIVE_NAME, pathToInstallServer, docFolder);
-        //L.write("Main", "Returned from Installator into install() method");
+        //L.write("Main", "Returned from Installer into install() method");
     }
 
     /**
@@ -265,9 +265,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if (btnPMA.getText().equals(getString(R.string.download_phpmyadmin))) {// start download PMA
                 //L.write("Main onClick", "click to install pma button");
                 btnPMA.setEnabled(false);
-                installator = new Installator(this, handlerInstallPMA, false);
+                installator = new Installer(this, handlerInstallPMA, false);
                 installator.execute(Const.PMA_NAME, docFolder + "/phpmyadmin", docFolder);
-                //L.write("Main onClick", "Returned from Installator into install() method (PMA)");
+                //L.write("Main onClick", "Returned from Installer into install() method (PMA)");
             } else {// run PMA
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(WebViewActivity.DEFAULT_URL + "/phpmyadmin/"), context, SiteTools.class);
                 intent.putExtra("docFolder", docFolder);

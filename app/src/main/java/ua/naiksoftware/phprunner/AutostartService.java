@@ -3,21 +3,19 @@
  */
 package ua.naiksoftware.phprunner;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
+
 import java.util.concurrent.TimeUnit;
 
 /**
- *
  * @author Naik
  */
 public class AutostartService extends Service {
-
-    NotificationManager manager;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -32,11 +30,13 @@ public class AutostartService extends Service {
             return;
         }
         int id = 999;
-        manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        Notification notif = new Notification(R.drawable.logo, getString(R.string.launching), System.currentTimeMillis());
-        notif.setLatestEventInfo(this, getString(R.string.app_name), getString(R.string.launching), null);
-        notif.flags |= Notification.FLAG_NO_CLEAR;
-        manager.notify(id, notif);
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(getString(R.string.launching))
+                .setAutoCancel(false);
+        manager.notify(id, builder.build());
 
         // Crutches to wait for the detection of sdcard
         boolean loop;
@@ -56,11 +56,12 @@ public class AutostartService extends Service {
 
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("start_from_service", true);
-        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
         flags = utils.checkRun();
-        String descript = (flags[0] && flags[1] && flags[2]) ? getString(R.string.successfully_run) : getString(R.string.launch_err);
-        notif.setLatestEventInfo(this, getString(R.string.app_name), descript, pIntent);
-        notif.flags |= Notification.FLAG_AUTO_CANCEL;
-        manager.notify(id, notif);
+        String description = (flags[0] && flags[1] && flags[2]) ? getString(R.string.successfully_run) : getString(R.string.launch_err);
+        builder.setContentText(description)
+                .setContentIntent(pIntent)
+                .setAutoCancel(true);
+        manager.notify(id, builder.build());
     }
 }
